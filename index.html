@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+  <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css"/>
+  <style>
+    body, html { margin: 0; height: 100%; }
+    #panorama { width: 100%; height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="panorama"></div>
+  <script>
+    pannellum.viewer('panorama', {
+      "default": {
+        "firstScene": "scene1",
+        "sceneFadeDuration": 1000 // For transition fade
+      },
+      "scenes": {
+        "scene1": {
+          "type": "equirectangular",
+          "panorama": "image2.JPG",  // First scene panorama, laser & electronics room
+          "autoLoad": true,
+          "hotSpots": [
+            {
+              "pitch": -10,
+              "yaw": 0,
+              "type": "info",
+              "text": "Epilog Fusion Maker Laser Cutter",
+          
+            },
+            {
+              "pitch": 0,
+              "yaw": -190,
+              "type": "info",
+              "text": "Electronics Bench",
+        
+            },
+            {
+              "pitch": 0,
+              "yaw": 115,
+              "type": "scene",
+              "text": "Continue the tour",
+              "sceneId": "secondScene"
+            }
+          ]
+        },
+        "secondScene": {
+          "type": "equirectangular",
+          "panorama": "image3.jpeg", // Second scene panorama, workshop room
+          "autoLoad": true,
+          "hotSpots": [
+            {
+              "pitch": 10,
+              "yaw": -145,
+              "type": "scene",
+              "text": "Continue the tour",
+              "sceneId": "scene1"
+            },
+            {
+             "pitch": 8,
+              "yaw": 103,
+              "type": "info",
+              "text": "Workshop Room",
+          
+            }
+          ]
+        }
+      }
+    });
+  </script>
+</body>
+</html>
